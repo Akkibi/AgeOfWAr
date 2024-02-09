@@ -48,6 +48,15 @@ public class CameraMove : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 moveDirection = new Vector3(m_MoveVector.x, 0, m_MoveVector.y);
+        if (Camera.main != null)
+        {
+            moveDirection = Camera.main.transform.TransformDirection(moveDirection);
+        }
+        else
+        {
+            Debug.LogError("Main camera is not found!");
+            return;
+        }
         moveDirection.y = 0;
 
         Vector3 newPosition = transform.position + moveDirection * moveSpeed * Time.fixedDeltaTime;
