@@ -59,11 +59,11 @@ public class CameraMove : MonoBehaviour
         }
         moveDirection.y = 0;
 
-        Vector3 newPosition = transform.position + moveDirection * moveSpeed * Time.fixedDeltaTime;
+        Vector3 newPosition = transform.localPosition + moveDirection * moveSpeed * Time.fixedDeltaTime;
         // Clamp the position within the defined limits
         newPosition.x = Mathf.Clamp(newPosition.x, leftLimit, rightLimit);
         newPosition.z = Mathf.Clamp(newPosition.z, backLimit, frontLimit);
 
-        transform.position = newPosition;
+        transform.localPosition = newPosition;
     }
 }
