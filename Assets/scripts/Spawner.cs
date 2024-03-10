@@ -4,35 +4,32 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] public Character prefabToSpawn;
+    [SerializeField] public Character m_prefabToSpawn;
     [SerializeField] private Transform enemyTarget;
 
     [SerializeField] private bool isPlayer;
 
-    // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(enemyTarget.name);
+        //Debug.Log(enemyTarget.name);
     }
 
-    // Update is called once per frame
+    // trigger createcharacter on input
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.N))
         {
-            SpawnPrefab();
-        } else if (Input.GetKeyDown(KeyCode.Z))
-        {
-            SpawnPrefab();
+            SpawnPrefab(isPlayer);
         }
     }
 
     
-
-    void SpawnPrefab()
+    // Create new character with tag, target and position
+    void SpawnPrefab(bool isPlayer)
     {
-            Character c1s = Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
-            c1s.SetTarget(enemyTarget);
-            c1s.camp = isPlayer ? "Player" : "Enemy";
+            Character newCharacter = Instantiate(m_prefabToSpawn, transform.position, Quaternion.identity);
+            newCharacter.targetBase = enemyTarget;
+            newCharacter.tag = isPlayer ? "Player" : "Enemy";
+            
     }
 }

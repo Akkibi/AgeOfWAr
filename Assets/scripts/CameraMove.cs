@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class CameraMove : MonoBehaviour
 {
     private Rigidbody m_Rigidbody;
-    private CustomInput input = null;
+    private CustomInput m_input = null;
     private Vector2 m_MoveVector;
 
     [SerializeField] private float moveSpeed = 5f;
@@ -18,21 +18,21 @@ public class CameraMove : MonoBehaviour
     void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
-        input = new CustomInput();
+        m_input = new CustomInput();
     }
 
     void OnEnable()
     {
-        input.Enable();
-        input.Player.Movement.started += OnMovePerformed;
-        input.Player.Movement.canceled += OnMoveCanceled;
+        m_input.Enable();
+        m_input.Player.Movement.started += OnMovePerformed;
+        m_input.Player.Movement.canceled += OnMoveCanceled;
     }
 
     void OnDisable()
     {
-        input.Disable();
-        input.Player.Movement.started -= OnMovePerformed;
-        input.Player.Movement.canceled -= OnMoveCanceled;
+        m_input.Disable();
+        m_input.Player.Movement.started -= OnMovePerformed;
+        m_input.Player.Movement.canceled -= OnMoveCanceled;
     }
 
     void OnMovePerformed(InputAction.CallbackContext context)
@@ -45,7 +45,7 @@ public class CameraMove : MonoBehaviour
         m_MoveVector = Vector2.zero;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         Vector3 moveDirection = new Vector3(m_MoveVector.x, 0, m_MoveVector.y);
         if (Camera.main != null)
