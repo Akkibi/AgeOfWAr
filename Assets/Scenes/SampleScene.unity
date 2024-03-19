@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a04b984fd3b71aab46eaea10f104fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 3330969339386406747, guid: 9e8e10c9039aa9fb8b2e0ef0c9abadaf,
+  m_prefabToSpawn: {fileID: 3330969339386406747, guid: 9e8e10c9039aa9fb8b2e0ef0c9abadaf,
     type: 3}
   enemyTarget: {fileID: 1049071323}
   isPlayer: 0
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a04b984fd3b71aab46eaea10f104fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 3330969339386406747, guid: 9e8e10c9039aa9fb8b2e0ef0c9abadaf,
+  m_prefabToSpawn: {fileID: 3330969339386406747, guid: 9e8e10c9039aa9fb8b2e0ef0c9abadaf,
     type: 3}
   enemyTarget: {fileID: 410750072}
   isPlayer: 1

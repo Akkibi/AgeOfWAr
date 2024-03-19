@@ -27,9 +27,9 @@ public class Spawner : MonoBehaviour
     // Create new character with tag, target and position
     void SpawnPrefab(bool isPlayer)
     {
-            Character newCharacter = Instantiate(m_prefabToSpawn, transform.position, Quaternion.identity);
-            newCharacter.targetBase = enemyTarget;
-            newCharacter.tag = isPlayer ? "Player" : "Enemy";
+            Character newAgent = Instantiate(m_prefabToSpawn, transform.position, Quaternion.identity);
+            newAgent.m_targetBase = enemyTarget;
+            newAgent.tag = isPlayer ? "Player" : "Enemy";
             
     }
 }
