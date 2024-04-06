@@ -5,14 +5,16 @@ public class Character : MonoBehaviour
 {
     public int hp = 20;
     private bool isAlive = true;
-    private float damageCooldown = 1f;
+    private float damageCooldown = 2f;
     private float lastDamageTime = 0f;
-    private int damagePerSecond = 5;
+    public int damagePerSecond = 5;
 
     public string m_camp = "player";
     public Transform m_targetBase;
+    public string m_type;
     private Character targetEnemy;
     private NavMeshAgent agent;
+
 
     void Start()
     {
@@ -71,8 +73,7 @@ public class Character : MonoBehaviour
     private void Die()
     {
         isAlive = false;
-        // Optionally, play death animation or perform other death-related actions
-        //delete character from game
+        // rotate the character to 90 degrees on the x-axis in 1 second
         Destroy(gameObject);
     }
 }
